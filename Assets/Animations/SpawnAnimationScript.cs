@@ -7,11 +7,13 @@ public class SpawnAnimationScript : MonoBehaviour
     public GameObject mainCamera;
     public GameObject spawnCamera;
     public bool cutsceneFinished = false;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         spawnCamera = GameObject.FindGameObjectWithTag("SpawnCutsceneCamera");
+        player = GameObject.FindGameObjectWithTag("Player");
         spawnCamera.SetActive(true);
         mainCamera.SetActive(false);
 
@@ -20,7 +22,7 @@ public class SpawnAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnCamera.GetComponent<Transform>().position == new Vector3(-11.62f, 0.9729954f, 0.69f))
+        if (spawnCamera.GetComponent<Transform>().position == player.GetComponent<Transform>().position)
         {
             cutsceneFinished = true;
             mainCamera.SetActive(true);
