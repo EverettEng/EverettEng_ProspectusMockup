@@ -7,6 +7,7 @@ TagManager:
   - SpawnCutsceneCamera
   - CameraSettings
   - BlackScreen
+  - DeathTag
   layers:
   - Default
   - TransparentFX
