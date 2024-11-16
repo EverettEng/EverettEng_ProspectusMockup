@@ -8,6 +8,7 @@ public class SpawnAnimationScript : MonoBehaviour
     public GameObject spawnCamera;
     public bool cutsceneFinished = false;
     public GameObject player;
+    public float distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,14 @@ public class SpawnAnimationScript : MonoBehaviour
         spawnCamera.SetActive(true);
         mainCamera.SetActive(false);
 
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnCamera.GetComponent<Transform>().position == player.GetComponent<Transform>().position)
+        distance = Vector3.Distance(player.transform.position, spawnCamera.transform.position);
+        if (distance <= 0.0001f)
         {
             cutsceneFinished = true;
             mainCamera.SetActive(true);

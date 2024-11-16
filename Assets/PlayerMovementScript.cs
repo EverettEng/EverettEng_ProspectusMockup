@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerMovementScript : MonoBehaviour
         transform.position = spawn.transform.position;
         canJump = true;
         rb = GetComponent<Rigidbody>();
+        if (!DataManager.done1)
+        {
+            SceneManager.LoadScene("Death Scene");
+        }
     }
 
     // Update is called once per frame

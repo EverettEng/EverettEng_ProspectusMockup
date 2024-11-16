@@ -20,6 +20,8 @@ public class DeathScreenScript : MonoBehaviour
     public TMP_Text deathText;
     int b = 0;
     int a = 0;
+    public bool deathTextDone = false;
+    public bool deathCutsceneDone = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,7 @@ public class DeathScreenScript : MonoBehaviour
         timer += Time.deltaTime;
 
 
-        if (timer >= 0.15f)
+        if (timer >= 0.05f && !deathTextDone)
         {
             timer = 0;
             if (b == 0)
@@ -113,6 +115,7 @@ public class DeathScreenScript : MonoBehaviour
                     deathText.text += "\n";
                     a = 0;
                     b++;
+                    deathTextDone = true;
                 }
                 else
                 {
@@ -120,6 +123,11 @@ public class DeathScreenScript : MonoBehaviour
                     a++;
                 }
             }
+        }
+
+        if (deathTextDone && timer >= 2.1f)
+        {
+            deathCutsceneDone = true;
         }
     }
 }

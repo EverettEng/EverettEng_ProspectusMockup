@@ -8,6 +8,7 @@ TagManager:
   - CameraSettings
   - BlackScreen
   - DeathTag
+  - DeathScreen
   layers:
   - Default
   - TransparentFX
